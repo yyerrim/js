@@ -1,0 +1,30 @@
+<!-- PDF 2.3 -->
+
+<body>
+    <script>
+        let variable = 123; // 전역변수
+
+        if (true) {
+            alert(1);
+            alert(2);
+            let vv = 445; // 현재 중괄호 안에서만 사용 가능
+        }
+        alert(vv); // 중괄호 안에서 사용한 변수는 밖에서는 사용 불가
+    </script>
+</body>
+
+<!-- PDF 2.5 -->
+
+<body>
+    <script>
+        a();
+
+
+
+
+
+        function a() {
+            alert(111);
+        }
+    </script>
+</body>

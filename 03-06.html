@@ -1,0 +1,28 @@
+<!-- PDF 3.7 -->
+
+<body>
+    <script>
+        let a = 1;
+
+        if (false & ++a) {
+            // true || ++a : 앞의 조건이 만족됐기 때문에 ++a까지 진행되지 않으므로 a = 1
+            // true | ++a : 조건에 만족했는지 안했는지와 관계없이 모든 코드가 진행되므로 a = 2
+            // true && ++a : 두 조건 다 만족해야하기 때문에 a = 2
+            // false && ++a : 앞의 조건에서 이미 거짓이기 때문에 ++a까지 진행되지 않으므로 a = 1
+            // false & ++a : 앞의 조건이 만족했는지 안했는지와 관계없이 모든 코드가 진행되므로 a = 2
+
+        }
+
+        console.log(a);
+
+        // PDF 3.8
+        // JavaScript는 숫자 1과 문자 1을 같다고 취급함
+        console.log(1 == '1');
+        console.log(1 == "1");
+        console.log(1 == `1`);
+        // ===를 이용하여 속성까지 구분 가능
+        console.log(1 === '1');
+        console.log(1 === "1");
+        console.log(1 === `1`);
+    </script>
+</body>

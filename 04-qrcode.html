@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="css/04-qrcode.css">
+
+<body>
+    <section id="container">
+        <section class="dropbox" id="dropbox">
+            <h4>Drop files here to upload</h4>
+        </section>
+    </section>
+
+    <script src="./lib/js/jsQR.js"></script>
+    <script>
+        const dropbox = document.querySelector('#dropbox');
+
+        /* 파일을 외부에서 dropbox로 drag 할 때 */
+        dropbox.ondragover = function () {
+            this.className = 'dropbox dragover'; // 모습 변경을 위해 class 정의
+            return false;
+        }
+        /* 파일을 dropbox에서 외부로 drag 할 때 */
+        dropbox.ondragleave = function () {
+            this.className = 'dropbox'; // 모습 변경을 위해 class 정의
+            return false;
+        }
+        /* 파일을 dropbox로 drop 할 때 */
+        dropbox.ondrop = function (e) {
+            e.preventDefault();
+
+            removeImg(); // qrcode 이미지 삭제
+
+            this.className = 'dropbox';
+            const file = e.dataTransfer.files[0]; // drop된 파일 1개 가져오기
+
+            const reader = new FileReader(); // img 태그로 출력하기 위해서
+            reader.readAsDataURL(file);
+
+            reader.onloadend = function () {
+                const base64 = reader.result;
+
+                /* img 태그 생성 후 dropbox에 추가 */
+                const img = createImg(base64);
+
+                /* jsQR 라이브러리에 image data를 넣은 후 해석 결과 출력 */
+                showContent(base64, img);
+            }
+        }
+
+        function showContent(base64, img) {
+            const tempImage = new Image();
+            tempImage.src = base64;
+
+            tempImage.onload = function () {
+                const canvas = document.createElement('canvas');
+                const canvasContext = canvas.getContext('2d');
+
+                canvas.width = img.width;
+                canvas.height = img.height;
+
+                canvasContext.drawImage(this, 0, 0, img.width, img.height);
+
+                const imageData =
+                    canvasContext.getImageData(0, 0, canvas.width, canvas.height);
+
+                const code = jsQR(
+                    imageData.data, imageData.width, imageData.height);
+                console.log(code.data);
+
+                //http://m.dhlottery.co.kr/?v=1016q040919273940q131417303138q071521273441q040713333839q0511172039441371665797
+                // 1120회차 02 19 26 31 38 41
+                // QR Code 촬영 후 1등에 당첨된것처럼 보이도록 문자열 수정하기
+                // let url = 'https://m.dhlottery.co.kr/qr.do?method=winQr&v=1016q040919273940q131417303138q071521273441q040713333839q0511172039441371665797';
+                let index = code.data.indexOf('v') + 2;
+                let url2 = code.data.slice(0, index);
+                let url3 = `${url2}1120q021926313841`;
+                // console.log(url3);
+                open(url3, '', 'width=400px height=300px');
+
+                // 팝업 띄우기 : open(접속하고자하는내용, 팝업창의 이름, 팝업창의 크기)
+                // open(code.data, '', 'width=400px height=300px');
+
+                return code;
+            }
+        }
+
+        function removeImg() {
+            const target = document.querySelector('img');
+            if (target) target.parentNode.removeChild(target);
+        }
+
+        function createImg(base64) {
+            let img = document.createElement('img');
+            img.src = base64;
+            document.querySelector('#dropbox').appendChild(img);
+            return img;
+        }
+
+    </script>
+</body>
+
+</html>

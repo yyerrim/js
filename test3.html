@@ -1,0 +1,83 @@
+<body>
+    <!-- jqueryui.com : Sortable -->
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+
+    <ul id="sortable">
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+        <li>e</li>
+    </ul>
+
+    <script>
+        $("#sortable").sortable(); // 핵심 코드
+    </script> -->
+
+    <!-- jqueryui.com : Droppable -->
+    <!-- <style>
+        #draggable {
+            width: 100px;
+            height: 100px;
+            padding: 0.5em;
+            float: left;
+            margin: 10px 10px 10px 0;
+        }
+
+        #droppable {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+
+    <div id="draggable" class="ui-widget-content">
+        <p>Drag me to my target</p>
+    </div>
+    <div id="droppable" class="ui-widget-header">
+        <p>Drop here</p>
+    </div>
+
+    <script>
+        $("#draggable").draggable();
+        $("#droppable").droppable({
+            drop: function (event, ui) {
+                $(this)
+                    .addClass("ui-state-highlight")
+                    .find("p")
+                    .html("Dropped!");
+            }
+        });
+    </script> -->
+
+    <!-- PDF 4.17 -->
+    <script>
+        // a();
+        // function a() {
+        //     let c = 100;
+        //     c += 100;
+        //     alert(c);
+        // }
+        // 이전에 만들어놨던 c는 없어지기때문에 a()를 한번 더 호출해도 200 이 나옴
+
+        // 클로저 : 함수 안에 함수를 만들면 됨
+        const f = a(); // 실행결과가 함수로 나오기 때문에 f()를 한번 더 호출해야함
+        f();
+        function a() {
+            let c = 100;
+            return function () {
+                c += 1;
+                alert(c);
+            }
+        }
+        // 의도치않게 클로저 현상을 만들기도 함 - 부정적인 개념
+        // 변수에 다른 사람이 접근하지 못하게 하려고 사용
+
+        let x = 4;
+        // 전역변수로 만들면 개발자도구로 값을 바꿀수있음
+        // 개발자도구에서 x=1000 이라고 선언한 후 x 호출하면 1000이 나옴
+    </script>
+</body>

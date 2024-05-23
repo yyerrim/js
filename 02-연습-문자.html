@@ -1,0 +1,18 @@
+<body>
+    <script>
+        // "Life" is too short, You need 'JavaScript' 출력하기
+        // let s = '"Life" is too short, You need ' + "'JavaScript'";
+        let s1 = `"Life" is too short, You need 'JavaScript'`;
+        console.log(s1);
+
+        // "short" 라는 문자열이 시작되는 위치(인덱스) 구하기
+        let s = 'Life is too short, You need JavaScript';
+        console.log(`${s.indexOf('short')}`);
+
+        // 공백 문자를 기준으로 문자열을 리스트로 변환하기
+        console.log(`${s.split(' ')}`);
+        // 규리 풀이
+        const arr = s.split(' ');
+        console.log(arr);
+    </script>
+</body>

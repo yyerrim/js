@@ -1,0 +1,14 @@
+<!-- p.1 숫자 요소를 가지는 리스트를 입력받은 후 평균을 반환하는 함수 작성 -->
+<body>
+    <script>
+        function calculator(items) {
+            let total = 0;
+            for (let i = 0; i < items.length; i++) {
+                const item = items[i];
+                total += item;
+            }
+            return total / items.length;
+        }
+        console.log(calculator([3, 7, 9, 11]))
+    </script>
+</body>

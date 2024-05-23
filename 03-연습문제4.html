@@ -1,0 +1,31 @@
+<!-- PDF 3.20 -->
+
+<body>
+    <!-- 사용자가 직접 입력할 수 있도록 만들어보기 -->
+    점수 : <input type="text">
+    <br>
+    <input type="checkbox" id="pass"> 자격증
+    <br>
+    <input type="checkbox" id="portfolio"> 포트폴리오
+    <button onclick="run()">확인</button> <!-- 확인을 누르면 자바스크립트가 작동 -->
+
+    <script>
+        function run() {
+            const 점수 = document.querySelector('[type=text]');
+            let score = 점수.value;
+
+            const 포트폴리오 = document.querySelector('#portfolio');
+            let hasPortfolio = 포트폴리오.checked;
+
+            const 자격증 = document.querySelector('#pass');
+            let isPass = 자격증.checked;
+
+            if (score >= 60 && (hasPortfolio === true || isPass === true)) {
+                // && 연산자가 우선순위가 더 높으므로 () 처리 해줘야함
+                console.log('채용');
+            } else {
+                console.log('탈락');
+            }
+        }
+    </script>
+</body>

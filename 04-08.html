@@ -1,0 +1,51 @@
+<!-- PDF 4.9 -->
+
+<body>
+    <div id="clock"></div>
+    <script>
+        // const print = function () { // anonymous function
+        //     console.log('print');
+        // }
+
+        // // 함수 그냥 실행
+        // print();
+
+        // // 함수에 함수 넣어서 실행
+        // function run(p) {
+        //     p();
+        // }
+        // run(print);
+
+        // 4초 뒤에 원하는 기능 실행 ex) 전자시계
+        // setTimeout(show, 4000);
+        // function show() { // callback function
+        //     alert('Hello');
+        // }
+
+        // 시계 만들기 전에 1초마다 숫자 카운트 하는거 먼저 해보기
+        // setInterval(run, 1000);
+        // let count = 0;
+        // function run() {
+        //     count++;
+        //     const clock = document.querySelector('#clock');
+        //     clock.innerHTML = count;
+        // }
+
+        // 시계 만들기 (1초마다 00:00:00으로 나오게 하기)
+        setInterval(run, 1000);
+        let count = 0;
+        function run() {
+            const date = new Date();
+            const h = date.getHours();
+
+            let m = date.getMinutes();
+            m = m < 10 ? '0' + m : m;
+
+            let s = date.getSeconds();
+            s = s < 10 ? '0' + s : s;
+
+            const clock = document.querySelector('#clock');
+            clock.innerHTML = `${h}:${m}:${s}`;
+        }
+    </script>
+</body>

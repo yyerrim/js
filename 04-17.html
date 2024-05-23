@@ -1,0 +1,40 @@
+<!-- PDF 4.19 -->
+
+<body>
+    <script>
+        // function sequence() {
+        //     let seq = 0;
+        //     return function () {
+        //         seq++;
+        //         return seq;
+        //     };
+        // }
+        // const check = sequence();
+
+        // let count = 0;
+        // // window.addEventListener(이벤트, 콜백함수);
+        // window.addEventListener('blur', () => {
+        //     count++;
+        //     if (count > 5) {
+        //         close(); // window.close(); : window 생략 가능
+        //     }
+        // });
+        // 개발자도구에서 count를 다른 값으로 설정을 하게되면 제대로된 기능을 못하게됨
+        // 그래서 클로저 사용
+
+        function f() {
+            let count = 0;
+            return function () {
+                count++;
+                return count; // count 값이 얼마인지 접근할 수 없으므로 count를 return 시킴
+            }
+        }
+        const a = f();
+        window.addEventListener('blur', () => {
+            let c = a();
+            if (c > 5) {
+                close();
+            }
+        });
+    </script>
+</body>

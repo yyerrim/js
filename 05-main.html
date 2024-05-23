@@ -1,0 +1,18 @@
+<body>
+    <!-- 옛날방식이지만 지금도 많이 쓰고 있음 -->
+    <script src="./05-sub1.js"></script>
+
+    <script>
+        // run();
+    </script>
+
+    <!-- 최신 방식이지만 불편한 점이 많아서 잘 안씀 (회사에서는 씀) -->
+    <script type="module">
+        import OO from './05-sub2.js';
+        // OO();
+        window.OO = OO; // 굳이 button과 연결하고 싶다면 사용하는 코드
+    </script>
+
+    <button onclick="run()">실행1</button>
+    <button onclick="OO()">실행2</button> <!-- 이건 동작 안함 : 이게 불편함 -->
+</body>

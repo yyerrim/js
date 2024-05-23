@@ -1,0 +1,71 @@
+<body>
+    <input type="text" onclick="run()">
+    <input type="checkbox">
+    <script>
+        // // 큰따옴표, 작은따옴표 구분하지 않음
+
+        // // 개발자도구로 내용확인 = System.out.println
+        // console.log('Hello : log');
+
+        // document.write('Hello');
+        // // 잘 사용하지 않음
+        // // 기존 브라우저에 뭐가 있던없던 상관없이 다 덮어버리고 write 내용만 나옴
+
+        // // document.html태그 
+        // document.body.innerHTML += 'Bye';
+        // // += : 누적 -> 기존 내용 사라지지 않음
+
+        // // 팝업창(경고)
+        // alert('경고');
+        // // 원래는 window.alert, window.print 라고 써야함 (window 생략 가능)
+
+        // print();
+
+        // // PDF 1.17
+        // // log level : log -> info -> warn -> error 아래로 갈수록 중요한 메세지
+        // // 실제로는 log, dir 사용
+        // console.dir('Hello : dir');
+        // console.info('Hello : info');
+        // console.warn('Hello : warn');
+        // console.error('Hello : error');
+
+        let body = document.body;
+        console.log(body);
+
+        console.dir(body); // innerHTML 안에 현재 작성중인 문서의 모든 내용이 들어가있음
+        // body의 배경색을 yellow로 바꾸기
+        // style - backgroundColor
+        body.style.backgroundColor = 'yellow';
+
+        let input = document.querySelector('input');
+        // 'input' = '[type=text]'
+        console.dir(input);
+        input.value = '마음대로';
+
+        // 문제 : checkbox 체크하기
+        // let check = document.querySelector('input:nth-of-type(2)');
+        // console.dir(check);
+        // check.checked = true;
+        // if (check.checked == true) {
+        //     alert(true);
+        // }
+
+        // "마음대로" input을 클릭하면 체크 상태를 변경하는 코드 작성하기
+        function run() {
+            let check = document.querySelector('input:nth-of-type(2)');
+            console.log(typeof check);
+
+            let statue = check.checked;
+            console.log(typeof statue);
+
+            if (statue) {
+                check.checked = false;
+            } else {
+                check.checked = true;
+            }
+        }
+
+        let map = {'key' : 'value'};
+        alert(map.key);
+    </script>
+</body>

@@ -1,0 +1,37 @@
+<body>
+    <script>
+        get(); // 호이스팅 (hoisting)
+
+        async function get() {
+            const url = 'http://ggoreb.com/http/html1.jsp';
+            // const url = 'http://ggoreb.com/http/json1.jsp';
+
+            // const res = fetch(url);
+            const res = await fetch(url);
+            // res : response, result
+
+            // const data = res.text();
+            const data = await res.text();
+            // const data = await res.json();
+
+            console.log(data);
+            // 모든 서버는 자바스크립트의 네트워크 요청을 차단하기 때문에 오류 발생
+            // 오류가 발생하지 않는 경우는 백앤드 개발자가 허용해주는 코드를 써놓은거임
+
+            // 통신이 완료되는 시간이 얼마가 걸릴지를 모름 (무조건 기다릴 수 없음)
+            // 대기 시간이 불확실한 것들은 비동기로 동작하도록 설계되어있음
+            // 비동기 : 한 작업이 끝나고 다음 작업이 시작되는게 아니라 동시에 실행되는것
+            // fetch가 실행되고 res로 결과가 들어온 다음에 실행되어야하는데 동시에 실행하기 때문에 에러 발생
+
+            // await 키워드 사용 : 결과가 도착할 때까지 대기
+            // await 키워드는 async 키워드가 붙은 함수에서 사용 가능
+            // await를 안쓰는 상황이 잘 없음
+            // AJAX : 자바스크립트의 비동기 통신
+
+            // 브라우저에 출력
+            const body = document.querySelector('body');
+            body.innerHTML = data;
+            // 코드가 상대경로로 되어있기 때문에 지금 실행하면 이미지 제대로 안나옴 -> 나중에 해보기
+        }
+    </script>
+</body>
