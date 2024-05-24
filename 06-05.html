@@ -1,0 +1,26 @@
+<!-- PDF 6.7 -->
+
+<body>
+    <script>
+        const animals = ['🐶', '🐱', '🐷', '🐵', '🦝', '🐰'];
+
+        console.log(animals);
+
+        // 마지막 요소 제거
+        const last = animals.pop(); // 요소 뽑아낸 후 변수에 대입
+        console.log(last);
+        console.log(animals); // 원본 데이터에는 뽑아낸 요소 사라짐
+
+        // 첫번째 요소 제거
+        const first = animals.shift(); // 전체 요소를 왼쪽으로 한칸 이동시킬때 튀어나오는 첫번째 요소를 변수에 대입
+        console.log(first);
+        console.log(animals);
+
+        // 원숭이 제거
+        delete animals[2];
+        console.log(animals); // 출력 : ['🐱', '🐷', empty, '🦝']
+
+        // animals.unshift('🐔');
+        // console.log(animals);
+    </script>
+</body>

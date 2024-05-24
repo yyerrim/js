@@ -1,0 +1,30 @@
+<body>
+    <script>
+        function a() {
+            b();
+        }
+        function b() {
+            c();
+        }
+        function c() {
+            alert('ccc');
+        }
+
+        a();
+        // stack에 a 들어감 -> b 들어감 -> c 들어감
+        // 작업 끝나면 c 탈출 -> b 탈출 -> a 탈출
+
+        let 전역변수 = 10;
+
+        function 밖() {
+            let 변수 = 10;
+            return function 안() {
+                변수++;
+                // return 변수;
+                console.log(변수);
+            }
+        }
+
+        // const temp = 밖(); : temp = 안();
+    </script>
+</body>

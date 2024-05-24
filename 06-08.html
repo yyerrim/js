@@ -1,0 +1,22 @@
+<!-- PDF 6.12 -->
+
+<body>
+    <script>
+        // const array = [10, 23, 29, 33, 37, 40];
+        // let result = array.find((value, index, arr) => {
+        //     console.log(value, index, arr);
+        //     return value % 3 == 0;
+        // });
+        // console.log(result);
+        // 3의 배수 없으면 undefined 나옴
+
+        // PDF 6.13
+        const array = [12, 23, 29, 33, 39, 40];
+        let result = array.filter((value, index, arr) => {
+            console.log(value, index, arr);
+            return value % 3 == 0;
+        });
+        console.log(result);
+        // find로 출력하면 12만 나옴
+    </script>
+</body>

@@ -1,0 +1,21 @@
+<!-- PDF 6.29 -->
+
+<body>
+    <script>
+        const array = [6, 7, 8, 9, 10, 1, 2, 3, 4, 5];
+        const newArray = array.sort((next, prev) => {
+            if (next % 2 == 0) {
+                if (prev % 2 == 0) {
+                    return prev - next;
+                }
+                return 1;
+            } else {
+                if (prev % 2 != 0) {
+                    return next - prev;
+                }
+                return -1;
+            }
+        });
+        console.log(`${newArray}`);
+    </script>
+</body>

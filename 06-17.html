@@ -1,0 +1,40 @@
+<!-- PDF 6.26 -->
+
+<body>
+    <script>
+        // const array = [1, 3, 4, 2];
+        // const newArray = array.sort();
+        // console.log(`old array: ${array}`);
+        // console.log(`new array: ${newArray}`);
+
+        // 음수인 경우 위치변경됨
+        const array = [1, 3, 4, 2];
+        const newArray = array.sort((next, prev) => {
+            return prev - next;
+        });
+        // const newArray = array.sort((next, prev) => {
+        //     return next - prev;
+        // });
+        // const newArray = array.sort((next, prev) => {
+        //     return -1;
+        // });
+        // const newArray = array.sort((next, prev) => {
+        //     return 0; // 원래 모습 그대로
+        // });
+        console.log(`old array: ${array}`);
+        console.log(`new array: ${newArray}`);
+
+        // 랜덤하게 위치 바꾸기
+        // const array = [1, 3, 4, 2, 5, 6, 7, 8, 9, 10];
+        // const newArray = array.sort((next, prev) => {
+        //     let ran = Math.random();
+        //     if (ran > 0.5) {
+        //         return -1;
+        //     } else {
+        //         return 0;
+        //     }
+        // });
+        // console.log(`old array: ${array}`);
+        // console.log(`new array: ${newArray}`);
+    </script>
+</body>

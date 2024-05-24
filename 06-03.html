@@ -1,0 +1,68 @@
+<!-- PDF 6.4 -->
+
+<body>
+    <script>
+        const animals = ['🐶', '🐱', '🐷'];
+        animals['a'] = '👌';
+
+        // 1번. 정석
+        for (let i = 0; i < animals.length; i++) {
+            console.log(animals[i]);
+        }
+        // key를 예상해서 value 출력
+        // 👌 출력안됨
+
+        // 2번. key를 알아낸 후 value 출력
+        for (let key in animals) {
+            console.log(animals[key]);
+        }
+        // 갖고있는 key를 받아서 value를 출력
+        // 👌 출력됨
+
+        // 3번. key와 관계없이 value를 직접 얻어내기
+        for (let value of animals) {
+            console.log(value);
+        }
+        // 👌 출력안됨
+
+        // 4번. 배열의 API 활용
+        animals.forEach(() => {
+            console.log('?');
+        });
+        // 배열의 요소개수(길이)만큼 ? 출력됨
+        // 배열의 요소 출력하려면 매개변수 넣어주기
+        animals.forEach((v) => {
+            console.log(v);
+        });
+        animals.forEach((v, i, a, s) => {
+            console.log(v, i, a);
+        });
+
+        // PDF 6.5
+        function a() {
+            console.log('그냥');
+        }
+        a(1, 2, 3); // 출력 : 그냥
+        function b(value, index) {
+            console.log(`그냥 ${value} ${index}`);
+        }
+        b(1, 2, 3); // 출력 : 그냥 1 2
+
+        animals.filter(() => {
+            console.log("filter");
+        });
+        // filter는 value, index, array 3가지 값을 가지기 때문에 filter 3번 동작
+        animals.filter((v, i) => { // value와 index 출력
+            console.log(v, i);
+        });
+
+        // const list = animals.filter((v, i) => {
+        //     console.log(v, i);
+        // });
+        // console.log(list); // 출력 : 빈 배열 (조건을 적어줘야 조건에 맞는 값이 출력됨)
+        const list = animals.filter((v, i) => {
+            return i >= 1;
+        });
+        console.log(list);
+    </script>
+</body>

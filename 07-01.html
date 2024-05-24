@@ -1,0 +1,16 @@
+<!-- PDF 7.3 -->
+
+<body>
+    <script>
+        let json = JSON.stringify(true);
+        console.log(json);
+        json = JSON.stringify(['apple', 'banana'])
+        // 원래는 객체였는데 문자열(["apple","banana"])로 바뀜
+        console.log(json);
+        console.log(typeof json); // string
+
+        // 다시 객체로 돌리기
+        const obj = JSON.parse(json);
+        console.log(typeof obj); // object
+    </script>
+</body>

@@ -1,0 +1,27 @@
+<!-- PDF 6.8 -->
+
+<body>
+    <script>
+        // const max = function () {
+        //     let output = 0;
+        //     for (let i = 0; i < max.length; i++) {
+        //         if (max[i] > output || i == 0) {
+        //             output = max[i];
+        //         }
+        //     }
+        //     return output;
+        // };
+        // console.log(max([1, 2, 3, 4]));
+
+        const max = (nums) => {
+            let output = 0;
+            for (const num of nums) {
+                if (num > output) {
+                    output = num;
+                }
+            }
+            return output;
+        };
+        console.log(max([1, 2, 3, 4]));
+    </script>
+</body>

@@ -1,0 +1,16 @@
+<!-- PDF 6.30 -->
+
+<body>
+    <script>
+        const arr = [1, 2, 3, 4, 5];
+
+        const newArr = arr.map(function (value) {
+            // return value ** value;
+            // return 'a';
+            return `<a href='abc.com?id=${value}'>${value}>`;
+        });
+
+        console.log(`old array: ${arr}`);
+        console.log(`new array: ${newArr}`);
+    </script>
+</body>

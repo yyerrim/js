@@ -1,0 +1,20 @@
+<body>
+    <script>
+        // url = 'http://ggoreb.com/api/toc.jsp';
+        // const res = fetch(url);
+        // console.log(res); // then 쓰기 전에 출력 : Promise {<pending>}
+        // res.then((data) => {
+        //     return data.json();
+        // }).then((data) => {
+        //     console.log(data);
+        // })
+
+        async function get() {
+            url = 'http://ggoreb.com/api/toc.jsp';
+            const res = await fetch(url); // await는 async가 붙은 함수 안에서 사용 가능
+            const data = await res.json();
+            console.log(data);
+        }
+        get();
+    </script>
+</body>

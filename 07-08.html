@@ -1,0 +1,30 @@
+<!-- PDF 7.16 -->
+
+<body>
+    <script>
+        const getHen = () =>
+            new Promise((resolve, reject) => {
+                setTimeout(
+                    () => resolve('🐓'), 1000);
+            });
+        const getEgg = (hen) =>
+            new Promise((resolve, reject) => {
+                setTimeout(
+                    () => resolve(`${hen} >> 🥚`), 1000);
+            });
+        const cook = (egg) =>
+            new Promise((resolve, reject) => {
+                setTimeout(
+                    () => resolve(`${egg} >> 🍳`), 1000);
+            });
+
+        // // 정석
+        // const a = getHen();
+        // const b = a.then();
+
+        getHen()
+            .then(hen => getEgg(hen))
+            .then(egg => cook(egg))
+            .then(result => console.log(result));
+    </script>
+</body>
