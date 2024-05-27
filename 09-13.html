@@ -1,0 +1,58 @@
+<!-- PDF 9.20 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="http://ggoreb.com/images/summer.jpg" width="300px" alt="">
+
+    <!-- <form>
+        <input type="text">
+        <button>제출</button>
+    </form> -->
+
+    <form onsubmit="return check()">
+        <input type="text">
+        <button>제출</button>
+    </form>
+</body>
+
+<script>
+    const imgs = document.querySelectorAll('img')
+    imgs.forEach((img) => {
+        // 이미지에 마우스 오른쪽 버튼 못쓰게 막기
+        img.addEventListener('contextmenu', (event) => {
+            event.preventDefault()
+        });
+    });
+
+    // // form
+    // const input = document.querySelector('input');
+    // const button = document.querySelector('button');
+    // button.addEventListener('click', () => {
+    //     if (!input.value) {
+    //         alert('여기');
+    //         return false;
+    //     }
+    // });
+
+    // form onsubmit
+    function check() {
+        if (!input.value) {
+            alert('반드시 값을 입력해주세요.');
+            input.focus();
+            return false;
+        }
+    }
+    const input = document.querySelector('input');
+    const button = document.querySelector('button');
+    button.addEventListener('click', () => {
+
+    });
+</script>
+
+</html>

@@ -1,0 +1,15 @@
+<!-- 오늘 하루 이 창 열지 않음 -->
+
+<body>
+    <script src="http://ggoreb.com/busanit/2024/js/cookie.js"></script> <!-- // import -->
+
+    <script>
+        const value = getCookie('popup');
+        console.log(value); // 출력 : undefined
+        if (!value) {
+            // opne('url', 'name', 'option(width, height)')
+            open('09-child.html', 'a', 'width=200px height=200px');
+            // name 아무거나 넣어주면 팝업창 하나만 뜸 (공백은 안됨)
+        }
+    </script>
+</body>

@@ -1,0 +1,63 @@
+<!-- PDF 9.15 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <input type="text"> inch
+    <button>계산</button>
+    <p></p>
+</body>
+
+<script> // Event Driven Programming
+    // 변환 공식 : inch * 2.54 => cm
+    const input = document.querySelector('input');
+    const p = document.querySelector('p');
+    // 콜백함수 안에 써도 되고 밖에 써도되지만 일반적으로는 밖에 쓰는게 맞음
+
+    const button = document.querySelector('button');
+    button.addEventListener('click', () => {
+        // p.innerHTML = `${input.value * 2.54} cm`;
+
+        // 강사님 풀이
+        const value = input.value;
+        p.innerHTML = value * 2.54 + "cm";
+        // JS는 * / 연산을 하게 될 경우 숫자로 됨 ex) '10' * 10 = 100
+    })
+
+    // 숫자가 아닌 문자가 입력되었을때 지우기
+    // input.addEventListener('keypress', (e) => {
+    //     // e.keyCode >= 48
+    //     if (e.key >= '0' && e.key <= '9') {
+
+    //     } else { // 마지막 글자 1개 제거
+    //         let value = input.value;
+    //         value = value.substring(0, value.length - 1);
+    //         input.value = value;
+    //     }
+    // }) // 글자가 나오기전에 코드가 동작하기 때문에 오류 발생 (keydown도 동일)
+
+    // input.addEventListener('keyup', (e) => {
+    //     if (e.key >= '0' && e.key <= '9') {
+
+    //     } else {
+    //         let value = input.value;
+    //         value = value.substring(0, value.length - 1);
+    //         input.value = value;
+    //     }
+    // }) // 키보드 누르고있다가 떼면 오류 발생
+
+    input.addEventListener('keypress', (e) => {
+        if (e.key >= '0' && e.key <= '9') {
+
+        } else {
+            e.returnValue = false;
+        }
+    }) // 한글, 특수문자는 입력되는 오류 발생 (시간날때 찾아서 수정해보기)
+</script>
+
+</html>

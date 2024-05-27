@@ -1,0 +1,28 @@
+<!-- PDF 9.5 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <script>
+        const h1 = (text) => `<h1>${text}</h1>`;
+    </script>
+    <script>
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     document.body.innerHTML += h1('h1 태그 추가');
+        // });
+        // document.body.innerHTML += h1('h1 태그 추가'); // body 생성전이기때문에 동작 안함
+
+        // 크기 변경될때 이벤트 발생
+        window.addEventListener('resize', () => {
+            document.body.innerHTML += h1('h1 태그 추가');
+        });
+    </script>
+</head>
+
+<body>
+    <h1>h1 태그</h1>
+</body>
+
+</html>

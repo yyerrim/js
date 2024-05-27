@@ -1,0 +1,29 @@
+<!-- PDF 9.13 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>글자 수 : 0</h3>
+    <input type="text" name="title" id="title">
+</body>
+
+<script>
+    const h3 = document.querySelector('h3');
+    const input = document.querySelector('input');
+    input.addEventListener('keyup', function (event) {
+        // 누르고 있는 동안은 글자 수 변화 없다가 키보드에서 손을 떼는 순간 글자 수 찍힘
+
+        console.log(event);
+        // key: "1" : 우리가 입력한 숫자
+
+        const length = input.value.length;
+        h3.textContent = `글자 수 : ${length}`;
+    });
+</script>
+
+</html>

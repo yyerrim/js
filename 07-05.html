@@ -24,25 +24,60 @@
         // }, 2000);
         // console.log(result); // 1
 
-        // 진짜 작업완료 기다렸다가 '작업완료' 찍어내고 싶을때
-        let result;
-        setTimeout(() => {
-            result = '작업완료';
-            run(result);
-        }, 2000);
-        function run(r) {
-            console.log(r);
-        }
-        console.log(result);
-        // 이렇게 해도 되지만 이 콜백함수가 다른 콜백함수를 부르고 그 콜백함수가 또 다른 콜백함수를 부르고...
-        // 콜백함수 지옥
+        // // 진짜 작업완료 기다렸다가 '작업완료' 찍어내고 싶을때
+        // let result;
+        // setTimeout(() => {
+        //     result = '작업완료';
+        //     run(result);
+        // }, 2000);
+        // function run(r) {
+        //     console.log(r);
+        // }
+        // console.log(result);
+        // // 이렇게 해도 되지만 이 콜백함수가 다른 콜백함수를 부르고 그 콜백함수가 또 다른 콜백함수를 부르고...
+        // // 콜백함수 지옥
 
-        const promise = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve('작업완료');
-            }, 2000);
+        // const promise = new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         resolve('작업완료');
+        //     }, 2000);
+        // });
+        // promise.then((res) => {
+        //     console.log(res);
+        // })
+        // // 콜백함수를 동급으로 데려갈 수 있어서 코드를 유지보수 하기 쉬움
+        // // promise -> await
+        // async function run() {
+        //     await promise;
+        // }
+
+        // // 실제 활용 사례 (데이터 처리할때 쓰는 공식같은 코드)
+        // // fetch().then();
+        // async function run2() {
+        //     const url = 'https://newsapi.org/v2/top-headlines?country=kr&apiKey=9f5baf7d9f3f42879a20d7d19d9886e4';
+        //     const res = await fetch(url);
+        //     const data = await res.json();
+        //     // console.log(data);
+        //     // 각 기사 제목 뽑아보기
+        //     const articles = data.articles;
+        //     articles.forEach((article) => {
+        //         const title = article.title;
+        //         console.log(title);
+        //     });
+        // }
+        // run2();
+
+        // 현재 위치의 날씨, 온도
+        navigator.geolocation.getCurrentPosition(async (pos) => {
+            const lat = pos.coords.latitude;
+            const lng = pos.coords.longitude;
+            const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=6edee3c2aa182bc44d18ccb204c98a31`;
+            const res = await fetch(url);
+            const data = await res.json();
+            // console.log(url);
+            const main = data.main;
+            const temp = main.temp;
+            console.log(temp);
         });
-        promise.then(() => {})
-        // 콜백함수를 동급으로 데려갈 수 있어서 코드를 유지보수 하기 쉬움
     </script>
 </body>

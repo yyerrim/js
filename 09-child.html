@@ -1,0 +1,11 @@
+오늘 하루 열지 않음 <input type="checkbox">
+
+<script src="http://ggoreb.com/busanit/2024/js/cookie.js"></script> <!-- // import -->
+
+<script>
+    const input = document.querySelector('input');
+    input.addEventListener('click', () => {
+        setCookie('popup', '아무거나', 60 * 24);
+        close();
+    });
+</script>

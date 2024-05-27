@@ -1,0 +1,68 @@
+<!-- PDF 9.12 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        button,
+        img {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .container,
+        .target {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-grid">
+            <button type="button" class="btn btn-primary btn-block">
+                이미지 불러오기
+            </button>
+        </div>
+        <div class="target"></div>
+    </div>
+
+    <script>
+        document.querySelector('button').addEventListener('click', () => {
+            const target = document.querySelector('.target');
+
+            // // createElement 사용하지 않을때
+            // target.innerHTML = '<img src="http://ggoreb.com/images/choco/1.jpg">'
+
+            // const img = document.createElement('img');
+            // img.src = 'http://ggoreb.com/images/choco/2.jpg';
+            // target.appendChild(img);
+            // // 이미지 불러오기 누를때마다 이미지가 추가됨
+
+            // // 누를때마다 이미지가 추가되는게 아니라 하나만
+            // const obj = document.querySelector('img');
+            // if (obj) {
+            //     obj.remove();
+            // }
+            // const img = document.createElement('img');
+            // img.src = 'http://ggoreb.com/images/choco/2.jpg';
+            // target.appendChild(img);
+
+            // 이미지 1~6 중 랜덤으로 나오게하기
+            const obj = document.querySelector('img');
+            if (obj) {
+                obj.remove();
+            }
+            const num = parseInt(Math.random() * 6 + 1);
+            const img = document.createElement('img');
+            img.src = `http://ggoreb.com/images/choco/${num}.jpg`;
+            target.appendChild(img);
+        });
+    </script>
+</body>
+
+</html>

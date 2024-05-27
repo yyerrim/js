@@ -1,0 +1,23 @@
+<!-- PDF 9.23 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <a href='http://ggoreb.com'>이동</a>
+
+    <script>
+        const a = document.querySelector('a');
+        a.addEventListener('click', (e) => {
+            alert('차단');
+            e.preventDefault();
+        });
+    </script>
+
+</body>
+
+</html>

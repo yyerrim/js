@@ -1,0 +1,35 @@
+<!-- PDF 9.16 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    검색어 입력 : <input type="text" name="search">
+</body>
+
+<script>
+    const input = document.querySelector('[name=search]');
+    input.addEventListener('focus', (event) => { // input창 선택했을때
+        let search = event.currentTarget.value;
+        if (!search) { // !search : 아무런 값이 없을때
+            // event.currentTarget.value = '#';
+            event.target.value = '#';
+        }
+    });
+
+    input.addEventListener('keydown', (event) => { // keypress도 가능
+        // space : keyCode 32
+        let keyCode = event.keyCode;
+        if (keyCode == 32) {
+            event.returnValue = false; // 입력한 space는 없어지게 하고싶음
+            event.target.value += ', #';
+        }
+    });
+
+</script>
+
+</html>

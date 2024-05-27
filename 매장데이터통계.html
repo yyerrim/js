@@ -1,0 +1,60 @@
+<!-- 매장 데이터 통계내기
+    1. ajax -> fetch 사용해서 데이터 가져오기
+    2. parsing -> 데이터 추출하기 (list, object 사용)
+    3. slicing -> 구 까지만 잘라내기
+    4. 통계 -->
+
+<body>
+    <script>
+        const get = async () => {
+            const url = 'http://ggoreb.com/quiz/shop.jsp';
+            const res = await fetch(url);
+            const data = await res.json();
+            const list = data.list;
+
+            const address_obj = {};
+            const kind_obj = {};
+
+            list.forEach((v) => {
+                const address = v.address.substring(0, 10);
+                const kind = v.kind;
+                // console.log(address, kind);
+
+                if (address in address_obj) {
+                    address_obj[address] += 1;
+                } else {
+                    address_obj[address] = 1;
+                }
+                if (kind in kind_obj) {
+                    kind_obj[kind] += 1;
+                } else {
+                    kind_obj[kind] = 1;
+                }
+            });
+            console.log(address_obj);
+            console.log(kind_obj);
+        };
+        get();
+    </script>
+</body>
+
+<!-- <body>
+    <script>
+        async function get() {
+            const url = 'http://ggoreb.com/quiz/shop.jsp';
+            const res = await fetch(url);
+            const data = await res.json();
+            const list = data.list;
+
+            list.forEach((v) => {
+                const kind = v.kind;
+                console.log(kind);
+            })
+            list.forEach((v) => {
+                const address = v.address.substring(0, 10);
+                console.log(address);
+            })
+        }
+        get();
+    </script>
+</body> -->
